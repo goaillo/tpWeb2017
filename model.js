@@ -4,10 +4,10 @@
 function Drawing() {
     this.monTableauxFormes = new Array();
     this.getForms = function() {
-        return monTableauxFormes;
+        return this.monTableauxFormes;
     }.bind(this) ;
     this.addForms = function(elt) {
-        this.monTableauFormes.push(elt) ;
+        this.monTableauxFormes.push(elt) ;
     }.bind(this) ;
 };
 
@@ -45,6 +45,12 @@ function Rectangle(xHautGauche,yHautGauche, largeur, hauteur, epaisseurTrait, co
     this.getHeight = function() {
         return this.hauteur;
     }.bind(this) ;
+    this.setX = function(x) {
+        this.largeur = (x - this.xinitial);
+    }.bind(this) ;
+    this.setY = function(y) {
+        this.hauteur = (y - this.yinitial);
+    }.bind(this) ;
 };
 
 
@@ -67,6 +73,12 @@ function Line(xDebut,yDebut, xFinal, yFinal, epaisseurTrait, couleur)
     }.bind(this) ;
     this.getFinalY = function() {
         return this.yFinal;
+    }.bind(this) ;
+    this.setX = function(x) {
+        this.xFinal = x;
+    }.bind(this) ;
+    this.setY = function(y) {
+        this.yFinal = y;
     }.bind(this) ;
 };
 // N'oubliez pas l'héritage !

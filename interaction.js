@@ -25,6 +25,7 @@ function DnD(canvas, interactor) {
            this.xinitial = res.x;
            this.yinitial =res.y;
            this.isPoser = true;
+            interactor.onInteractionStart(this);
            console.log("x initial: " + this.xinitial + " | y initial : " + this.yinitial);
     }.bind(this) ;
 
@@ -34,6 +35,7 @@ function DnD(canvas, interactor) {
           var res = getMousePosition(canvas,evt);
           this.xfinal = res.x;
           this.yfinal = res.y;
+          interactor.onInteractionUpdate(this);
           console.log("x:" + this.xfinal + " | y :" + this.yfinal);
       }
   }.bind(this) ;
@@ -44,8 +46,9 @@ function DnD(canvas, interactor) {
         var res = getMousePosition(canvas,evt);
         this.xfinal = res.x;
         this.yfinal = res.y;
-        console.log("x final:" + this.xfinal + " | y final :" + this.yfinal);
         this.isPoser = false;
+        interactor.onInteractionEnd(this);
+        console.log("x final:" + this.xfinal + " | y final :" + this.yfinal);
     }
 
   }.bind(this) ;
