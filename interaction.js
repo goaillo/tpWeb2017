@@ -26,7 +26,7 @@ function DnD(canvas, interactor) {
            this.yinitial =res.y;
            this.isPoser = true;
             interactor.onInteractionStart(this);
-           console.log("x initial: " + this.xinitial + " | y initial : " + this.yinitial);
+           //console.log("x initial: " + this.xinitial + " | y initial : " + this.yinitial);
     }.bind(this) ;
 
   this.deplacer = function(evt) {
@@ -36,7 +36,7 @@ function DnD(canvas, interactor) {
           this.xfinal = res.x;
           this.yfinal = res.y;
           interactor.onInteractionUpdate(this);
-          console.log("x:" + this.xfinal + " | y :" + this.yfinal);
+          //console.log("x:" + this.xfinal + " | y :" + this.yfinal);
       }
   }.bind(this) ;
 
@@ -46,11 +46,10 @@ function DnD(canvas, interactor) {
         var res = getMousePosition(canvas,evt);
         this.xfinal = res.x;
         this.yfinal = res.y;
-        this.isPoser = false;
         interactor.onInteractionEnd(this);
-        console.log("x final:" + this.xfinal + " | y final :" + this.yfinal);
+        this.isPoser = false;
+        //console.log("x final:" + this.xfinal + " | y final :" + this.yfinal);
     }
-
   }.bind(this) ;
 
 	// Associer les fonctions précédentes aux évènements du canvas.

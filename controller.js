@@ -1,12 +1,41 @@
 var editingMode = { rect: 0, line: 1 };
 
 function Pencil(ctx, drawing, canvas) {
-	this.currEditingMode = editingMode.line;
-	this.currLineWidth = 5;
-	this.currColour = '#000000';
+    this.spinnerWidth = document.getElementById('spinnerWidth');
+    this.colorPicker = document.getElementById('colour');
+    this.butLine = document.getElementById('butLine');
+
+    this.currEditingMode;
+    if(this.butLine.checked)
+	{
+        this.currEditingMode = editingMode.line;
+	}
+	else
+	{
+        this.currEditingMode = editingMode.rect;
+	}
+
+	this.currLineWidth = this.spinnerWidth.value;
+	this.currColour = this.colorPicker.value;
 	this.currentShape = 0;
 
 	// Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
+    this.butRect = document.getElementById('butRect');
+    this.butRect.onclick = function (ev) {
+    	this.currEditingMode = editingMode.rect;
+	}.bind(this);
+
+    this.butLine.onclick = function (ev) {
+        this.currEditingMode = editingMode.line;
+    }.bind(this);
+
+    this.colorPicker.onchange = function (ev) {
+        this.currColour = this.colorPicker.value;
+    }.bind(this);
+
+    this.spinnerWidth.onchange = function (ev) {
+        this.currLineWidth = this.spinnerWidth.value;
+    }.bind(this);
 
 	new DnD(canvas, this);
 
@@ -23,7 +52,6 @@ function Pencil(ctx, drawing, canvas) {
         }
         drawing.paint(ctx);
         this.currentShape.paint(ctx);
-
     }.bind(this) ;
 
     this.onInteractionUpdate = function(dnd) {
@@ -36,9 +64,10 @@ function Pencil(ctx, drawing, canvas) {
     this.onInteractionEnd = function(dnd) {
         this.currentShape.setX(dnd.xfinal);
         this.currentShape.setY(dnd.yfinal);
-        this.currentShape.paint(ctx);
         drawing.addForms(this.currentShape);
         drawing.paint(ctx);
+        this.currentShape = 0;
+        console.log(drawing.getForms());
     }.bind(this) ;
 
     // Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd

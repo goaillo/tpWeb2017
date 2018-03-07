@@ -46,10 +46,10 @@ function Rectangle(xHautGauche,yHautGauche, largeur, hauteur, epaisseurTrait, co
         return this.hauteur;
     }.bind(this) ;
     this.setX = function(x) {
-        this.largeur = (x - this.xinitial);
+        this.largeur = (x - this.xHautGauche);
     }.bind(this) ;
     this.setY = function(y) {
-        this.hauteur = (y - this.yinitial);
+        this.hauteur = (y - this.yHautGauche);
     }.bind(this) ;
 };
 
