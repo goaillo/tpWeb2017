@@ -29,21 +29,6 @@ Drawing.prototype.paint = function(ctx) {
     });
 };
 
-Drawing.prototype.updateShapeList = function(){ //PENSEZ A CHANGER
-    listElem = document.getElementById('shapeList');
-    html = "";
-    index = 0;
-    this.getForms().forEach(function(eltDuTableau) {
-        html += "<li> Element " + (index + 1)+" : " + eltDuTableau.print()
-            + "<button type='button' class='btn btn-default'"
-            + "value = '"+index+"'"
-            + "onClick='removeElem(this)'>"
-            + "<span class='glyphicon glyphicon-remove-sign'></span>"
-            + "</button>"
-            + "</li>";
-        index++;
-    });
-    listElem.innerHTML = html;
-}
+
 
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.

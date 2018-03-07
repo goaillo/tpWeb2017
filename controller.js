@@ -41,8 +41,9 @@ function Pencil(ctx, drawing, canvas) {
         index = button.value;
         drawing.removeForm(index);
         drawing.paint(ctx);
-        drawing.updateShapeList();
-    }
+        this.updateShapeList();
+    }.bind(this);
+
 	new DnD(canvas, this);
 
 
@@ -75,8 +76,25 @@ function Pencil(ctx, drawing, canvas) {
         drawing.paint(ctx);
         this.currentShape = 0;
         console.log(drawing.getForms());
-        drawing.updateShapeList();
-    }.bind(this) ;
+        this.updateShapeList();
+    }.bind(this);
+
+    this.updateShapeList = function(){
+        listElem = document.getElementById('shapeList');
+        html = "";
+        index = 0;
+        drawing.getForms().forEach(function(eltDuTableau) {
+        html += "<li> Element " + (index + 1)+" : " + eltDuTableau.print()
+            + "<button type='button' class='btn btn-default'"
+            + "value = '"+index+"'"
+            + "onClick='removeElem(this)'>"
+            + "<span class='glyphicon glyphicon-remove-sign'></span>"
+            + "</button>"
+            + "</li>";
+        index++;
+        });
+        listElem.innerHTML = html;
+    }.bind(this);
 
     // Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 };
