@@ -1,4 +1,4 @@
-var editingMode = { rect: 0, line: 1 };
+var editingMode = { rect: 1, line: 0 };
 
 function Pencil(ctx, drawing, canvas) {
     this.spinnerWidth = document.getElementById('spinnerWidth');
@@ -68,6 +68,7 @@ function Pencil(ctx, drawing, canvas) {
         drawing.paint(ctx);
         this.currentShape = 0;
         console.log(drawing.getForms());
+        drawing.updateShapeList();
     }.bind(this) ;
 
     // Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd

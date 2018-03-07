@@ -14,7 +14,7 @@ function DnD(canvas, interactor) {
   this.xinitial = 0;
   this.yinitial = 0;
   this.xfinal = 0;
-  this.yfinal =0;
+  this.yfinal = 0;
 
   this.isPoser = false;
 

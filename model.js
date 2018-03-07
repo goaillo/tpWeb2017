@@ -51,6 +51,9 @@ function Rectangle(xHautGauche,yHautGauche, largeur, hauteur, epaisseurTrait, co
     this.setY = function(y) {
         this.hauteur = (y - this.yHautGauche);
     }.bind(this) ;
+    this.print = function() {
+        return "Rectangle";
+    }.bind(this);
 };
 
 
@@ -80,5 +83,8 @@ function Line(xDebut,yDebut, xFinal, yFinal, epaisseurTrait, couleur)
     this.setY = function(y) {
         this.yFinal = y;
     }.bind(this) ;
+    this.print = function() {
+        return "Line";
+    }.bind(this);
 };
 // N'oubliez pas l'héritage !

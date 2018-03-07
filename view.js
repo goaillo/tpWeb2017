@@ -29,5 +29,16 @@ Drawing.prototype.paint = function(ctx) {
     });
 };
 
+Drawing.prototype.updateShapeList = function(){
+    console.log("ok");
+    listElem = document.getElementById('shapeList');
+    html = "";
+    index = 1;
+    this.getForms().forEach(function(eltDuTableau) {
+        html += "<li> Element " + index + " : " + eltDuTableau.print()+"</li>";
+        index++;
+    });
+    listElem.innerHTML = html;
+}
 
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
