@@ -20,6 +20,10 @@ canvas.height=600
 // Code final à utiliser pour manipuler Pencil.
 var drawing = new Drawing();
 var pencil = new Pencil(ctx, drawing, canvas);
+
+this.removeElem = function(button){
+	pencil.removeElement(button);
+}
 //var rec = new Rectangle(10, 20, 50, 100, 5, '#00CCC0');
 //drawing.addForms(rec);
 drawing.paint(ctx, canvas);

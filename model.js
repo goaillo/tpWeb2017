@@ -9,6 +9,9 @@ function Drawing() {
     this.addForms = function(elt) {
         this.monTableauxFormes.push(elt) ;
     }.bind(this) ;
+    this.removeForm = function(index){
+        this.monTableauxFormes.splice(index, 1);
+    }.bind(this);
 };
 
 function Forme(epaisseurTrait, couleur)

@@ -37,7 +37,14 @@ function Pencil(ctx, drawing, canvas) {
         this.currLineWidth = this.spinnerWidth.value;
     }.bind(this);
 
+    this.removeElement = function (button){
+        index = button.value;
+        drawing.removeForm(index);
+        drawing.paint(ctx);
+        drawing.updateShapeList();
+    }
 	new DnD(canvas, this);
+
 
     this.onInteractionStart = function(dnd) {
         switch(this.currEditingMode){
