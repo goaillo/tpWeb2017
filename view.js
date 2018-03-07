@@ -6,6 +6,7 @@ Forme.prototype.paint = function(ctx) {
 Rectangle.prototype.paint = function(ctx) {
     Forme.prototype.paint.call(this,ctx);
     console.log("Rectangle " + ctx.strokeStyle);
+    ctx.beginPath();
     ctx.rect(this.getInitX(), this.getInitY(), this.getWidth(), this.getHeight());
     ctx.stroke();
 };
