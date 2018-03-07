@@ -29,13 +29,17 @@ Drawing.prototype.paint = function(ctx) {
     });
 };
 
-Drawing.prototype.updateShapeList = function(){
+Drawing.prototype.updateShapeList = function(){ //PENSEZ A CHANGER
     console.log("ok");
     listElem = document.getElementById('shapeList');
     html = "";
     index = 1;
     this.getForms().forEach(function(eltDuTableau) {
-        html += "<li> Element " + index + " : " + eltDuTableau.print()+"</li>";
+        html += "<li> Element " + index + " : " + eltDuTableau.print()
+            + "<button type='button' class='btn btn-default'>"
+            + "<span class='glyphicon glyphicon-remove-sign'></span>"
+            + "</button>"
+            + "</li>";
         index++;
     });
     listElem.innerHTML = html;
