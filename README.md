@@ -1,5 +1,5 @@
 # TP WEB 2017
-#
+# Authors : EONO Quentin, REBOURS Gael
 #### Quick start :
    - Download the project with zip or clone this repository with : 
 ``` sh
