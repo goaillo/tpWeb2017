@@ -6,5 +6,5 @@
 $ git clone https://github.com/goaillo/tpWeb2017.git
 ```
 - Open the repository folder in your favorite development environment (Sublime text, WebStorm ...).
-- Open ``` cavans.html``` file in your browser
+- Open ``` canvas.html``` file in your browser
 - Enjoy !
